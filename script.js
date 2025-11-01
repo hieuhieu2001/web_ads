@@ -565,11 +565,16 @@ const loadScript = src => new Promise(r => {
     grid.querySelectorAll(".value").forEach(v => v.textContent = "⏳ Đang tải...");
 
     try {
-      const pageToken = await getPageAccessToken(PAGE_ID, userToken);
-      if (!pageToken) return alert("Không lấy được PAGE_ACCESS_TOKEN.");
+      // const pageToken = await getPageAccessToken(PAGE_ID, userToken);
+      // if (!pageToken) return alert("Không lấy được PAGE_ACCESS_TOKEN.");
 
-      const [comments, fbEvents, orders, spend] = await Promise.all([
-        fetchComments(postId, pageToken, startDate, endDate),
+      // const [comments, fbEvents, orders, spend] = await Promise.all([
+      //   fetchComments(postId, pageToken, startDate, endDate),
+      //   fetchFirebaseEvents(postId, startDate, endDate),
+      //   fetchAllOrders(SHOP_ID, API_KEY, PAGE_SIZE),
+      //   fetchAdSpend(PAGE_ID, adIds, startDate, endDate, PAGE_ACCESS_TOKENS)
+      // ]);
+      const [ fbEvents, orders, spend] = await Promise.all([
         fetchFirebaseEvents(postId, startDate, endDate),
         fetchAllOrders(SHOP_ID, API_KEY, PAGE_SIZE),
         fetchAdSpend(PAGE_ID, adIds, startDate, endDate, PAGE_ACCESS_TOKENS)
@@ -599,7 +604,9 @@ const loadScript = src => new Promise(r => {
 
       const totalRevenue = totalCod + totalPrepaid;
       const grossProfit = totalRevenue - totalCostAll - spend;
-      const conversations = comments + fbEvents;
+      // const conversations = comments + fbEvents;
+      const conversations =   fbEvents;
+
 
       const values = grid.querySelectorAll(".card .value");
       values[0].textContent = adIds.join(", ");
