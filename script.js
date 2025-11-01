@@ -450,8 +450,12 @@ const loadScript = src => new Promise(r => {
 });
 
 (async () => {
-  await loadScript("https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js");
-  await loadScript("https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js");
+  // await loadScript("https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js");
+  // await loadScript("https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js");
+
+
+  await loadScript("https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js");
+  await loadScript("https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js");
 
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
