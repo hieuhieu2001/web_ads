@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard of 2025</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+      <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" alt="logo">
+      Dashboard of 2025
+    </div>
+    <div class="inputs">
+      <input placeholder="Ad ID" value="120234909339170169">
+      <input placeholder="Post ID" value="107101568655272_789059930530435">
+      <input placeholder="Start Date" value="2025-10-20">
+      <input placeholder="End Date" value="2025-10-26">
+      <input placeholder="Token" size="40">
+      <input placeholder="Limit" value="4000" style="width:70px">
+      <button id="updateBtn">Cập nhật</button>
+    </div>
+  </header>
+
+  <div class="grid" id="dashboardGrid">
+    <div class="card"><h3><span class="icon">🆔</span>Ad ID</h3><div class="value">120234909339170169</div><div class="subtext">1 mục</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">💸</span>Chi tiêu Ads</h3><div class="value">1.280.631 đ</div><div class="subtext">Chi tiêu quảng cáo</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">📄</span>Post ID</h3><div class="value">107101568655272_789059930530435</div><div class="subtext">1 mục</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">📦</span>Số đơn hàng</h3><div class="value">36</div><div class="subtext">Số đơn</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">💬</span>Số cuộc trò chuyện</h3><div class="value">131</div><div class="subtext">Tổng event (Firebase)</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">🎯</span>Tỉ lệ chuyển đổi</h3><div class="value">27.48 %</div><div class="subtext">Tỉ lệ chuyển đổi</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">💰</span>Doanh thu</h3><div class="value">34.957.000 đ</div><div class="subtext">Tổng giá bán</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">🧾</span>Tiền nhập hàng</h3><div class="value">16.704.000 đ</div><div class="subtext">Tổng giá nhập > A</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">📈</span>Lợi nhuận</h3><div class="value">16.972.369 đ</div><div class="subtext">Lợi nhuận gộp</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">💵</span>Chi phí/Đơn</h3><div class="value">35.573 đ</div><div class="subtext">Chi phí trung bình mỗi đơn</div><canvas></canvas></div>
+    <div class="card"><h3><span class="icon">⚙️</span>Chi phí/Cuộc trò chuyện</h3><div class="value">9.775 đ</div><div class="subtext">Chi phí trung bình mỗi cuộc trò chuyện</div><canvas></canvas></div>
+  </div>
+
+  <footer>© 2025 Dashboard Bright — HTML version</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
