@@ -432,18 +432,15 @@
 
 // ====== FIREBASE CONFIG ======
 
-if (!window.firebaseApp) {
-  window.firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyCvIRiRqZNHYjtQpDXIfAea1JDQYXsFGk0",
-    authDomain: "dash1-d9de2.firebaseapp.com",
-    databaseURL: "https://dash1-d9de2-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "dash1-d9de2",
-    storageBucket: "dash1-d9de2.appspot.com",
-    messagingSenderId: "599994064805",
-    appId: "1:599994064805:web:fd51e8aaf89a4f4e85924c"
-  });
-}
-const database = firebase.database();
+const firebaseConfig = {
+  apiKey: "AIzaSyCvIRiRqZNHYjtQpDXIfAea1JDQYXsFGk0",
+  authDomain: "dash1-d9de2.firebaseapp.com",
+  databaseURL: "https://dash1-d9de2-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "dash1-d9de2",
+  storageBucket: "dash1-d9de2.appspot.com",
+  messagingSenderId: "599994064805",
+  appId: "1:599994064805:web:fd51e8aaf89a4f4e85924c"
+};
 
 // ====== LOAD FIREBASE SDK SEQUENTIALLY ======
 const loadScript = src => new Promise(r => {
@@ -461,8 +458,10 @@ const loadScript = src => new Promise(r => {
   await loadScript("https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js");
   await loadScript("https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js");
 
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
+   const firebaseApp = !firebase.apps.length
+      ? firebase.initializeApp(firebaseConfig)
+      : firebase.app();
+  const database = firebaseApp.database();
 
   // ====== FETCH UTIL ======
   async function fetchJSON(url, params = {}, retries = 5, delay = 1000) {
